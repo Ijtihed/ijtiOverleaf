@@ -1,6 +1,4 @@
-# IjtiResumeTemplate
-
-A clean resume (overleaf recommended) template with customizable sections.
+A clean resume template (overleaf recommended) with customizable sections. Hand-made by yours truly.
 
 ## How to Use
 
