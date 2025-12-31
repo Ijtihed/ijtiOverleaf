@@ -1,0 +1,277 @@
+% -----------------------------
+% HOW TO USE THIS TEMPLATE
+% 1. Paste this into Overleaf as main.tex
+% 2. Edit the variables under "EDIT THESE" for name, links, email, phone
+% 3. Turn sections on or off by setting includeProjects, includeSRS, includeRA to true or false
+% 4. Add entries by copying an existing block, then changing the text
+% 5. If you get "Runaway argument", it almost always means you accidentally commented out a closing brace with %
+% -----------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+% Fixes the "Font shape ... bx/sc undefined" warning for bold small caps
+\usepackage{lmodern}
+
+\usepackage[left=0.5in,right=0.5in,top=0.7in,bottom=0.65in]{geometry}
+
+\usepackage{ifthen}
+\newboolean{includeProjects}
+\newboolean{includeSRS}
+\newboolean{includeRA}
+\setboolean{includeProjects}{true}
+\setboolean{includeSRS}{true}
+\setboolean{includeRA}{true}
+
+\usepackage{latexsym}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.35in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+% -----------------------------
+% Helper commands
+% -----------------------------
+
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+
+% Usage:
+% \resumeSubheading{Title}{Dates}{Org or team}{Location}
+%   \resumeItemListStart
+%     \resumeItem{Bullet}
+%   \resumeItemListEnd
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+% Usage:
+% \resumeProjectHeading{\textbf{Name} $|$ \emph{Tech}}{}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & #2 \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+% Publications list. This fixes wrapping and keeps year aligned right.
+\newcommand{\resumePubListStart}{\begin{itemize}[leftmargin=0in, label={}, itemsep=4pt, topsep=0pt, parsep=0pt, partopsep=0pt]}
+\newcommand{\resumePubListEnd}{\end{itemize}}
+% Usage:
+% \resumePub{Title}{(venue, authors, note).}{Year}
+\newcommand{\resumePub}[3]{%
+  \item
+  \begin{tabularx}{0.97\textwidth}{@{}X r@{}}
+    \textbf{#1} #2 & #3 \\
+  \end{tabularx}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% -----------------------------
+% EDIT THESE
+% -----------------------------
+\newcommand{\FullName}{John Doe}
+\newcommand{\PortfolioText}{portfolio: johndoe.dev}
+\newcommand{\PortfolioUrl}{https://johndoe.dev}
+\newcommand{\Phone}{+1 (555) 123-4567}
+\newcommand{\Email}{john.doe@gmail.com}
+\newcommand{\LinkedInText}{linkedin.com/in/johndoe}
+\newcommand{\LinkedInUrl}{https://www.linkedin.com/in/johndoe/}
+\newcommand{\GitHubText}{github.com/johndoe}
+\newcommand{\GitHubUrl}{https://github.com/johndoe}
+
+\begin{document}
+
+% Header
+% Note: If you see a "Runaway argument" error, check you did not put a % inside any {...} argument.
+\begin{center}
+  \textbf{\huge \scshape \FullName} \\[3pt]
+  \href{\PortfolioUrl}{\textbf{\PortfolioText}} \\[3pt]
+  \small \Phone $|$
+  \small \Email $|$
+  \href{\LinkedInUrl}{\LinkedInText} $|$
+  \href{\GitHubUrl}{\GitHubText}
+\end{center}
+
+% -----------------------------
+% EDUCATION
+% -----------------------------
+\section{Education}
+\resumeSubHeadingListStart
+
+  \item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{Massachusetts Institute of Technology (MIT)} & \\
+    \textit{\small M.S. in Computer Science (AI and Systems)} & \small Jun 2027 \\
+    \textit{\small B.S. in Electrical Engineering and Computer Science} & \small May 2025 \\
+  \end{tabular*}\vspace{-5pt}
+
+  \resumeSubheading
+    {University of Oxford}{Sep 2024 -- Dec 2024}
+    {Visiting Student, Computer Science}{Oxford, United Kingdom}
+    \resumeItemListStart
+      \resumeItem{Completed graduate coursework in probabilistic modeling, optimization, and distributed systems.}
+      \resumeItem{Built a research prototype for privacy preserving on device inference using quantization and secure aggregation.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-9pt}
+
+% -----------------------------
+% EXPERIENCE
+% -----------------------------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {Software Engineering Intern}{May 2026 -- Aug 2026}
+  {\href{https://www.google.com}{Google Ads Infrastructure, Full time}}{Mountain View, CA}
+  \resumeItemListStart
+    \resumeItem{Reduced p95 request latency by 18 percent by redesigning a fanout path and adding cache aware batching in Go.}
+    \resumeItem{Built a streaming backfill pipeline in Apache Beam to migrate 2.3B records with exactly once semantics.}
+    \resumeItem{Shipped end to end monitoring, alerts, and dashboards, lowering incident triage time from 25 minutes to 8 minutes.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Machine Learning Research Intern}{Jun 2025 -- Aug 2025}
+  {\href{https://openai.com}{OpenAI, Full time}}{San Francisco, CA}
+  \resumeItemListStart
+    \resumeItem{Improved a retrieval augmented generation benchmark score by 9.4 points through reranking and query rewriting.}
+    \resumeItem{Implemented scalable training utilities for multi GPU runs using PyTorch DDP, speeding experiments by 2.1x.}
+    \resumeItem{Co authored an internal report with ablations, safety checks, and reproducibility scripts for model evaluation.}
+  \resumeItemListEnd
+
+\ifthenelse{\boolean{includeRA}}{
+\resumeSubheading
+  {Research Assistant}{Sep 2024 -- Present}
+  {\href{https://www.csail.mit.edu}{MIT CSAIL, Human Centered AI Group}}{Cambridge, MA}
+  \resumeItemListStart
+    \resumeItem{Reproduced baselines for multimodal agent evaluation and built a simulation harness for controlled experiments.}
+    \resumeItem{Designed a user study protocol and analysis pipeline, including power analysis, preregistration, and reporting.}
+    \resumeItem{Maintained an open source codebase with CI, tests, and documentation, enabling external contributors.}
+  \resumeItemListEnd
+}{}
+
+\resumeSubHeadingListEnd
+\vspace{-10pt}
+
+% -----------------------------
+% SELECTED RESEARCH / PUBLICATIONS / SPEAKING
+% -----------------------------
+\ifthenelse{\boolean{includeSRS}}{
+\section{Selected Research, Publications, and Speaking}
+\resumePubListStart
+  \resumePub
+    {Neural Scheduling for Large Scale Systems}
+    {(with A. Smith, B. Lee). Preprint.}
+    {2026}
+  \resumePub
+    {Robust Retrieval Pipelines for Production RAG}
+    {(Poster). NeurIPS Workshop on Efficient Systems.}
+    {2025}
+  \resumePub
+    {Talk, Practical MLOps for Multimodal Evaluation}
+    {(Invited). MIT AI Seminar Series.}
+    {2025}
+  \resumePub
+    {Patent, Adaptive Batching for Low Latency Fanout Services}
+    {(Provisional).}
+    {2026}
+\resumePubListEnd
+\vspace{-8pt}
+}{}
+
+% -----------------------------
+% PROJECTS
+% -----------------------------
+\ifthenelse{\boolean{includeProjects}}{
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\href{https://github.com/johndoe/atlas-rag}{\textbf{AtlasRAG}} $|$ \emph{Python, FastAPI, PyTorch, FAISS, Docker}}{}
+\resumeItemListStart
+  \resumeItem{Built a local first RAG system with document chunking, vector search, reranking, and evaluation harnesses.}
+  \resumeItem{Added reproducible benchmarks with synthetic and real datasets, tracking accuracy, latency, and cost per query.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/johndoe/telemetry-kit}{\textbf{TelemetryKit}} $|$ \emph{Go, OpenTelemetry, Prometheus, Grafana}}{}
+\resumeItemListStart
+  \resumeItem{Created a plug and play observability toolkit for microservices with tracing, metrics, and alert templates.}
+  \resumeItem{Demonstrated a 3x faster incident root cause workflow using standardized dashboards and correlation IDs.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-10pt}
+}{}
+
+% -----------------------------
+% AWARDS
+% -----------------------------
+\section{Awards and Achievements}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Google Student Researcher Grant}{2026}
+    {\small Awarded funding for work on evaluation methodologies for deployed language model systems.}{}
+
+  \resumeSubheading
+    {Open Source Fellowship, Linux Foundation}{2024}
+    {\small Contributed features and tests to a high traffic networking library used in production systems.}{}
+
+\resumeSubHeadingListEnd
+\vspace{-10pt}
+
+% -----------------------------
+% SKILLS
+% -----------------------------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0in, label={}]
+  \small{\item{
+    \textbf{Languages}: Python, C++, Go, Rust, TypeScript, SQL \\[1pt]
+    \textbf{ML and AI}: PyTorch, JAX, Transformers, FAISS, Ray, Weights and Biases \\[1pt]
+    \textbf{Backend}: FastAPI, gRPC, Kafka, Redis, Postgres, Docker, Kubernetes \\[1pt]
+    \textbf{Systems}: Linux, OpenTelemetry, Prometheus, Grafana, CI and CD, Terraform \\[1pt]
+    \textbf{Tools}: Git, Bash, VS Code, Jupyter, Figma, Unity, ROS2
+  }}
+\end{itemize}
+
+\end{document}
