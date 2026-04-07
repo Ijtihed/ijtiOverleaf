@@ -21,16 +21,16 @@
     body { background: #000; font-family: "JetBrains Mono", monospace; }
   </style>
 </head>
-<body class="text-neutral-500 min-h-screen flex flex-col items-center px-8 pt-28 pb-24">
+<body class="text-neutral-500 min-h-screen flex flex-col items-center justify-center px-8">
 
-  <main class="w-full max-w-sm flex flex-col items-center text-center">
+  <main class="text-center w-full max-w-sm">
 
     <h1 class="text-white font-bold text-5xl tracking-tighter mb-3">ijtiOverleaf.</h1>
     <p class="text-neutral-500 text-[0.6rem] uppercase tracking-[0.25em] mb-14">
       ATS-friendly LaTeX resume template.
     </p>
 
-    <ol class="text-left w-full space-y-4 mb-14 text-[0.6rem] uppercase tracking-[0.18em] text-neutral-400">
+    <ol class="text-left space-y-4 mb-14 text-[0.6rem] uppercase tracking-[0.18em] text-neutral-400">
       <li><span class="text-neutral-700 mr-3">01 /</span>Copy the template below</li>
       <li><span class="text-neutral-700 mr-3">02 /</span>Paste into a new Overleaf project</li>
       <li><span class="text-neutral-700 mr-3">03 /</span>Edit the <span class="text-neutral-300">"EDIT THESE"</span> block (lines 110–118)</li>
@@ -38,7 +38,7 @@
       <li><span class="text-neutral-700 mr-3">05 /</span>Recompile</li>
     </ol>
 
-    <div class="flex flex-col gap-3 w-full">
+    <div class="flex flex-col gap-3 items-center">
       <button
         id="copy-btn"
         onclick="copyTemplate()"
@@ -57,15 +57,6 @@
     </div>
 
   </main>
-
-  <section class="w-full max-w-xl mt-24 mb-4">
-    <p class="text-neutral-800 text-[0.55rem] uppercase tracking-[0.25em] mb-5">Preview /</p>
-    <img
-      src="./preview.png"
-      alt="Resume preview"
-      class="w-full border border-neutral-900"
-    />
-  </section>
 
   <footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-10 py-6">
     <span class="text-neutral-600 text-[0.55rem] uppercase tracking-[0.2em]">MIT License</span>
