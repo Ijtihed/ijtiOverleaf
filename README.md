@@ -1,19 +1,28 @@
-A clean resume template (overleaf recommended) with customizable sections. Hand-made by yours truly.
+# ijtiOverleaf
 
-## How to Use
+A clean, ATS-friendly LaTeX resume template. Hand-made. Free to use.
 
-1. **Upload to Overleaf**: Copy `main.tex` into a new Overleaf project
-2. **Edit Personal Info**: Update the variables in the "EDIT THESE" section (lines 110-118):
-   - Name, portfolio, phone, email, LinkedIn, GitHub
-3. **Toggle Sections**: Set these boolean flags to `true` or `false` (lines 21-23):
-   - `includeProjects` - Show/hide Projects section
-   - `includeSRS` - Show/hide Selected Research/Publications section
-   - `includeRA` - Show/hide Research Assistant (or anything you want) experience
-4. **Add Your Content**: Replace the example entries with your own education, experience, projects, etc.
-5. **Compile**: Click "Recompile" in Overleaf to generate your PDF
+**[Live →](https://ijtioverleaf.vercel.app)**
 
-## Info
+---
 
-- If you get a "Runaway argument" error, check for accidentally commented closing braces (`}`)
-- Copy existing entry blocks and modify them to add new items
-- The template uses standard LaTeX packages available on Overleaf
+## Usage
+
+1. Visit the link above and click **Copy Template**
+2. Paste into a new [Overleaf](https://overleaf.com) project as `main.tex`
+3. Edit the **`EDIT THESE`** block (lines 110–118) — name, portfolio, phone, email, LinkedIn, GitHub
+4. Toggle sections on/off (lines 21–23):
+   - `includeProjects` — Projects section
+   - `includeSRS` — Selected Research / Publications section
+   - `includeRA` — Research Assistant experience block
+5. Replace example content with your own, click **Recompile**
+
+## Notes
+
+- **"Runaway argument" error** — you accidentally commented out a closing `}` with `%`
+- To add a new entry, copy an existing block and change the text
+- All packages used are available on Overleaf by default
+
+## License
+
+MIT — use freely, no attribution required.

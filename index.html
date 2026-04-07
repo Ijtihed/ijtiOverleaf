@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ijtiOverleaf.</title>
+  <meta name="description" content="ATS-friendly LaTeX resume template for Overleaf."/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..400&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { mono: ["JetBrains Mono", "monospace"] },
+          borderRadius: { DEFAULT: "0px", lg: "0px", xl: "0px" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #000; font-family: "JetBrains Mono", monospace; }
+  </style>
+</head>
+<body class="text-neutral-500 min-h-screen flex flex-col items-center justify-center px-8">
+
+  <main class="text-center w-full max-w-sm">
+
+    <h1 class="text-white font-bold text-5xl tracking-tighter mb-3">ijtiOverleaf.</h1>
+    <p class="text-neutral-500 text-[0.6rem] uppercase tracking-[0.25em] mb-14">
+      ATS-friendly LaTeX resume template.
+    </p>
+
+    <ol class="text-left space-y-4 mb-14 text-[0.6rem] uppercase tracking-[0.18em] text-neutral-400">
+      <li><span class="text-neutral-700 mr-3">01 /</span>Copy the template below</li>
+      <li><span class="text-neutral-700 mr-3">02 /</span>Paste into a new Overleaf project</li>
+      <li><span class="text-neutral-700 mr-3">03 /</span>Edit the <span class="text-neutral-300">"EDIT THESE"</span> block (lines 110–118)</li>
+      <li><span class="text-neutral-700 mr-3">04 /</span>Toggle sections on / off at lines 21–23</li>
+      <li><span class="text-neutral-700 mr-3">05 /</span>Recompile</li>
+    </ol>
+
+    <div class="flex flex-col gap-3 items-center">
+      <button
+        id="copy-btn"
+        onclick="copyTemplate()"
+        class="w-full border border-neutral-800 hover:border-neutral-500 hover:text-white text-neutral-400 transition-all duration-300 px-8 py-4 text-[0.6rem] uppercase tracking-[0.25em]"
+      >
+        Copy Template
+      </button>
+      <a
+        href="https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fraw.githubusercontent.com%2FIjtihed%2FijtiOverleaf%2Fmain%2Fmain.tex"
+        target="_blank"
+        rel="noreferrer"
+        class="w-full border border-neutral-900 hover:border-neutral-700 hover:text-neutral-400 text-neutral-600 transition-all duration-300 px-8 py-4 text-[0.6rem] uppercase tracking-[0.25em]"
+      >
+        Open in Overleaf →
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-10 py-6">
+    <span class="text-neutral-600 text-[0.55rem] uppercase tracking-[0.2em]">MIT License</span>
+    <a
+      href="https://github.com/Ijtihed/ijtiOverleaf"
+      target="_blank"
+      rel="noreferrer"
+      class="text-neutral-500 hover:text-neutral-300 transition-colors text-[0.55rem] uppercase tracking-[0.2em]"
+    >
+      GitHub →
+    </a>
+  </footer>
+
+  <script>
+    let templateContent = null;
+
+    fetch('./main.tex')
+      .then(r => r.text())
+      .then(text => { templateContent = text; })
+      .catch(() => {});
+
+    function copyTemplate() {
+      const btn = document.getElementById('copy-btn');
+      if (!templateContent) {
+        btn.textContent = 'Loading…';
+        setTimeout(() => { btn.textContent = 'Copy Template'; }, 1200);
+        return;
+      }
+      navigator.clipboard.writeText(templateContent).then(() => {
+        btn.textContent = 'Copied.';
+        setTimeout(() => { btn.textContent = 'Copy Template'; }, 2000);
+      }).catch(() => {
+        btn.textContent = 'Failed — try GitHub';
+        setTimeout(() => { btn.textContent = 'Copy Template'; }, 2500);
+      });
+    }
+  </script>
+
+</body>
+</html>
